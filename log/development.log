@@ -1,0 +1,881 @@
+  [1m[35m (219.4ms)[0m  [1m[35mCREATE DATABASE "url_shortener_development" ENCODING = 'unicode'[0m
+  [1m[35m (97.1ms)[0m  [1m[35mCREATE DATABASE "url_shortener_test" ENCODING = 'unicode'[0m
+  [1m[35m (49.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (47.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (41.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8112849748291978620)[0m
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLinks (20220201070532)
+  [1m[35m (25.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.7ms)[0m  [1m[35mCREATE TABLE "links" ("id" bigserial primary key, "url" character varying, "slug" character varying, "title" character varying, "clicked" integer DEFAULT 0, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_links_on_url" ON "links"  ("url")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (4.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220201070532"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-02-01 07:07:15.060478"], ["updated_at", "2022-02-01 07:07:15.060478"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8112849748291978620)[0m
+  [1m[35m (42.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8112849748291978620)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLinks (20220201070532)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (46.3ms)[0m  [1m[35mDROP TABLE "links"[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (44.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20220201070532"]]
+  [1m[35m (43.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(8112849748291978620)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8112849748291978620)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLinks (20220201070532)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (46.6ms)[0m  [1m[35mCREATE TABLE "links" ("id" bigserial primary key, "url" character varying, "shot_url" character varying, "title" character varying, "clicked" integer DEFAULT 0, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_links_on_url" ON "links"  ("url")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220201070532"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (40.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8112849748291978620)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8112849748291978620)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLinks (20220201070532)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.1ms)[0m  [1m[35mDROP TABLE "links"[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.6ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20220201070532"]]
+  [1m[35m (33.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(8112849748291978620)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8112849748291978620)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLinks (20220201070532)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (63.2ms)[0m  [1m[35mCREATE TABLE "links" ("id" bigserial primary key, "url" character varying, "short_url" character varying, "title" character varying, "clicked" integer DEFAULT 0, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_links_on_url" ON "links"  ("url")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220201070532"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8112849748291978620)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLink Exists? (43.2ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mLink Create (1.1ms)[0m  [1m[32mINSERT INTO "links" ("url", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["url", "neww"], ["created_at", "2022-02-01 07:14:06.940300"], ["updated_at", "2022-02-01 07:14:06.940300"]]
+  [1m[35m (39.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLink Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (41.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLink Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLink Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLink Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mLink Load (0.5ms)[0m  [1m[34mSELECT "links".* FROM "links"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLink Destroy (1.0ms)[0m  [1m[31mDELETE FROM "links" WHERE "links"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLink Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLink Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLink Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLink Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/api/v1/links" for ::1 at 2022-01-31 23:39:18 -0800
+  [1m[35m (41.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::LinksController#index as JSON
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "links".* FROM "links" ORDER BY "links"."clicked" ASC LIMIT $1[0m  [["LIMIT", 100]]
+  ↳ app/controllers/api/v1/links_controller.rb:4:in `index'
+  Rendering api/v1/links/index.jbuilder
+  Rendered collection of api/v1/links/_link.jbuilder [0 times] (Duration: 0.1ms | Allocations: 3)
+  Rendered api/v1/links/index.jbuilder (Duration: 3.8ms | Allocations: 644)
+Completed 200 OK in 26ms (Views: 10.4ms | ActiveRecord: 3.6ms | Allocations: 4767)
+
+
+Started GET "/api/v1/links/1" for ::1 at 2022-01-31 23:39:49 -0800
+Processing by Api::V1::LinksController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mLink Load (0.3ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:13:in `show'
+Completed 404 Not Found in 57ms (Views: 0.2ms | ActiveRecord: 50.6ms | Allocations: 2330)
+
+
+Started POST "/api/v1/links/1" for ::1 at 2022-01-31 23:40:04 -0800
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/links/1"):
+  
+actionpack (6.0.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4.4) lib/action_dispatch/middleware/host_authorization.rb:103:in `call'
+railties (6.0.4.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.10) lib/puma/configuration.rb:228:in `call'
+puma (4.3.10) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.10) lib/puma/server.rb:472:in `process_client'
+puma (4.3.10) lib/puma/server.rb:328:in `block in run'
+puma (4.3.10) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/api/v1/links/" for ::1 at 2022-01-31 23:40:08 -0800
+Processing by Api::V1::LinksController#create as JSON
+Completed 500 Internal Server Error in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 185)
+
+
+Started POST "/api/v1/links/" for ::1 at 2022-01-31 23:40:32 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{}}
+Completed 500 Internal Server Error in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 194)
+
+
+Started POST "/api/v1/links/" for ::1 at 2022-01-31 23:40:40 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{}}
+Completed 500 Internal Server Error in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 194)
+
+
+Started POST "/api/v1/links/" for ::1 at 2022-01-31 23:40:53 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{"url"=>"new"}}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+Validation failed: Url is not a valid url
+Completed 422 Unprocessable Entity in 23ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 9003)
+
+
+Started POST "/api/v1/links/" for ::1 at 2022-01-31 23:41:03 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{"url"=>"https://www.google.com"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Create (1.5ms)[0m  [1m[32mINSERT INTO "links" ("url", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["url", "https://www.google.com"], ["created_at", "2022-02-01 07:41:03.639881"], ["updated_at", "2022-02-01 07:41:03.639881"]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[35m (6.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  Rendered api/v1/links/_link.jbuilder (Duration: 0.9ms | Allocations: 129)
+Completed 200 OK in 20ms (Views: 2.6ms | ActiveRecord: 8.9ms | Allocations: 4266)
+
+
+Started GET "/api/v1/links/1" for ::1 at 2022-01-31 23:41:10 -0800
+Processing by Api::V1::LinksController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mLink Load (0.5ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:13:in `show'
+Completed 404 Not Found in 4ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 744)
+
+
+Started GET "/api/v1/links/2" for ::1 at 2022-01-31 23:41:18 -0800
+Processing by Api::V1::LinksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mLink Load (0.4ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:13:in `show'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:15:in `show'
+  [1m[36mLink Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" IS NULL AND "links"."id" != $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:15:in `show'
+  [1m[36mLink Update (3.2ms)[0m  [1m[33mUPDATE "links" SET "clicked" = $1, "updated_at" = $2 WHERE "links"."id" = $3[0m  [["clicked", 1], ["updated_at", "2022-02-01 07:41:18.159371"], ["id", 2]]
+  ↳ app/controllers/api/v1/links_controller.rb:15:in `show'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/links_controller.rb:15:in `show'
+  Rendering api/v1/links/show.jbuilder
+  Rendered api/v1/links/_link.jbuilder (Duration: 749.1ms | Allocations: 212062)
+  Rendered api/v1/links/show.jbuilder (Duration: 751.4ms | Allocations: 212341)
+Completed 500 Internal Server Error in 768ms (Views: 0.2ms | ActiveRecord: 5.0ms | Allocations: 216875)
+
+
+Started GET "/api/v1/links/2" for ::1 at 2022-01-31 23:42:34 -0800
+Processing by Api::V1::LinksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mLink Load (1.6ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:13:in `show'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:15:in `show'
+  [1m[36mLink Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" IS NULL AND "links"."id" != $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:15:in `show'
+  [1m[36mLink Update (0.9ms)[0m  [1m[33mUPDATE "links" SET "clicked" = $1, "updated_at" = $2 WHERE "links"."id" = $3[0m  [["clicked", 2], ["updated_at", "2022-02-01 07:42:34.775492"], ["id", 2]]
+  ↳ app/controllers/api/v1/links_controller.rb:15:in `show'
+  [1m[35m (40.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/links_controller.rb:15:in `show'
+  Rendering api/v1/links/show.jbuilder
+  Rendered api/v1/links/_link.jbuilder (Duration: 2.6ms | Allocations: 82)
+  Rendered api/v1/links/show.jbuilder (Duration: 5.2ms | Allocations: 450)
+Completed 200 OK in 68ms (Views: 6.4ms | ActiveRecord: 44.6ms | Allocations: 4955)
+
+
+Started GET "/api/v1/links/2" for ::1 at 2022-01-31 23:42:54 -0800
+Processing by Api::V1::LinksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mLink Load (1.3ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:13:in `show'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:15:in `show'
+  [1m[36mLink Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" IS NULL AND "links"."id" != $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:15:in `show'
+  [1m[36mLink Update (0.5ms)[0m  [1m[33mUPDATE "links" SET "clicked" = $1, "updated_at" = $2 WHERE "links"."id" = $3[0m  [["clicked", 3], ["updated_at", "2022-02-01 07:42:54.723714"], ["id", 2]]
+  ↳ app/controllers/api/v1/links_controller.rb:15:in `show'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/links_controller.rb:15:in `show'
+  Rendering api/v1/links/show.jbuilder
+  Rendered api/v1/links/_link.jbuilder (Duration: 0.3ms | Allocations: 84)
+  Rendered api/v1/links/show.jbuilder (Duration: 1.3ms | Allocations: 459)
+Completed 200 OK in 13ms (Views: 2.1ms | ActiveRecord: 2.9ms | Allocations: 4969)
+
+
+Started GET "/api/v1/links/2" for ::1 at 2022-01-31 23:42:57 -0800
+Processing by Api::V1::LinksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mLink Load (0.7ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:13:in `show'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:15:in `show'
+  [1m[36mLink Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" IS NULL AND "links"."id" != $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:15:in `show'
+  [1m[36mLink Update (0.5ms)[0m  [1m[33mUPDATE "links" SET "clicked" = $1, "updated_at" = $2 WHERE "links"."id" = $3[0m  [["clicked", 4], ["updated_at", "2022-02-01 07:42:57.178913"], ["id", 2]]
+  ↳ app/controllers/api/v1/links_controller.rb:15:in `show'
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/links_controller.rb:15:in `show'
+  Rendering api/v1/links/show.jbuilder
+  Rendered api/v1/links/_link.jbuilder (Duration: 0.1ms | Allocations: 15)
+  Rendered api/v1/links/show.jbuilder (Duration: 0.6ms | Allocations: 181)
+Completed 200 OK in 15ms (Views: 1.4ms | ActiveRecord: 4.3ms | Allocations: 4387)
+
+
+Started GET "/api/v1/links/2" for ::1 at 2022-01-31 23:42:57 -0800
+Processing by Api::V1::LinksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mLink Load (0.4ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:13:in `show'
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:15:in `show'
+  [1m[36mLink Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" IS NULL AND "links"."id" != $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:15:in `show'
+  [1m[36mLink Update (0.5ms)[0m  [1m[33mUPDATE "links" SET "clicked" = $1, "updated_at" = $2 WHERE "links"."id" = $3[0m  [["clicked", 5], ["updated_at", "2022-02-01 07:42:57.926527"], ["id", 2]]
+  ↳ app/controllers/api/v1/links_controller.rb:15:in `show'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/links_controller.rb:15:in `show'
+  Rendering api/v1/links/show.jbuilder
+  Rendered api/v1/links/_link.jbuilder (Duration: 0.1ms | Allocations: 15)
+  Rendered api/v1/links/show.jbuilder (Duration: 0.4ms | Allocations: 182)
+Completed 200 OK in 13ms (Views: 0.8ms | ActiveRecord: 2.7ms | Allocations: 4405)
+
+
+Started GET "/api/v1/links/2" for ::1 at 2022-01-31 23:42:58 -0800
+Processing by Api::V1::LinksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mLink Load (0.5ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:13:in `show'
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:15:in `show'
+  [1m[36mLink Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" IS NULL AND "links"."id" != $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:15:in `show'
+  [1m[36mLink Update (0.5ms)[0m  [1m[33mUPDATE "links" SET "clicked" = $1, "updated_at" = $2 WHERE "links"."id" = $3[0m  [["clicked", 6], ["updated_at", "2022-02-01 07:42:58.629268"], ["id", 2]]
+  ↳ app/controllers/api/v1/links_controller.rb:15:in `show'
+  [1m[35m (40.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/links_controller.rb:15:in `show'
+  Rendering api/v1/links/show.jbuilder
+  Rendered api/v1/links/_link.jbuilder (Duration: 0.1ms | Allocations: 15)
+  Rendered api/v1/links/show.jbuilder (Duration: 0.5ms | Allocations: 182)
+Completed 200 OK in 74ms (Views: 1.0ms | ActiveRecord: 43.2ms | Allocations: 4390)
+
+
+Started GET "/api/v1/links" for ::1 at 2022-01-31 23:43:08 -0800
+Processing by Api::V1::LinksController#index as JSON
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "links".* FROM "links" ORDER BY "links"."clicked" ASC LIMIT $1[0m  [["LIMIT", 100]]
+  ↳ app/controllers/api/v1/links_controller.rb:4:in `index'
+  Rendering api/v1/links/index.jbuilder
+  Rendered collection of api/v1/links/_link.jbuilder [1 times] (Duration: 1.9ms | Allocations: 1214)
+  Rendered api/v1/links/index.jbuilder (Duration: 3.6ms | Allocations: 1509)
+Completed 500 Internal Server Error in 8ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 2619)
+
+
+Started GET "/api/v1/links" for ::1 at 2022-01-31 23:43:30 -0800
+Processing by Api::V1::LinksController#index as JSON
+  Rendering api/v1/links/index.jbuilder
+  [1m[36mLink Load (0.4ms)[0m  [1m[34mSELECT "links".* FROM "links" ORDER BY "links"."clicked" ASC LIMIT $1[0m  [["LIMIT", 100]]
+  ↳ app/views/api/v1/links/index.jbuilder:2
+  Rendered collection of api/v1/links/_link.jbuilder [1 times] (Duration: 0.1ms | Allocations: 38)
+  Rendered api/v1/links/index.jbuilder (Duration: 13.8ms | Allocations: 5153)
+Completed 200 OK in 19ms (Views: 9.5ms | ActiveRecord: 6.7ms | Allocations: 6640)
+
+
+Started POST "/api/v1/links/" for ::1 at 2022-01-31 23:45:11 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{"url"=>"https://www.google.com"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+Validation failed: Short url has already been taken
+Completed 422 Unprocessable Entity in 27ms (Views: 0.4ms | ActiveRecord: 8.6ms | Allocations: 8307)
+
+
+  [1m[36mLink Load (0.7ms)[0m  [1m[34mSELECT "links".* FROM "links"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLink Destroy (0.7ms)[0m  [1m[31mDELETE FROM "links" WHERE "links"."id" = $1[0m  [["id", 2]]
+  [1m[35m (39.9ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/api/v1/links/" for ::1 at 2022-01-31 23:46:52 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{"url"=>"https://www.google.com"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Create (0.5ms)[0m  [1m[32mINSERT INTO "links" ("url", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["url", "https://www.google.com"], ["created_at", "2022-02-01 07:46:52.872077"], ["updated_at", "2022-02-01 07:46:52.872077"]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[35m (155.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  Rendered api/v1/links/_link.jbuilder (Duration: 0.4ms | Allocations: 137)
+Completed 200 OK in 186ms (Views: 1.8ms | ActiveRecord: 162.9ms | Allocations: 8924)
+
+
+Started POST "/api/v1/links/" for ::1 at 2022-01-31 23:47:21 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{"url"=>"https://www.google.com"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+Validation failed: Short url has already been taken
+Completed 422 Unprocessable Entity in 34ms (Views: 0.4ms | ActiveRecord: 10.6ms | Allocations: 8249)
+
+
+Started POST "/api/v1/links/" for ::1 at 2022-01-31 23:47:32 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{"url"=>"https://www.google.com"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+Validation failed: Short url has already been taken
+Completed 422 Unprocessable Entity in 49ms (Views: 0.2ms | ActiveRecord: 8.4ms | Allocations: 8252)
+
+
+Started POST "/api/v1/links/" for ::1 at 2022-01-31 23:47:45 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{"url"=>"https://www.google.com"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+Validation failed: Short url has already been taken
+Completed 422 Unprocessable Entity in 31ms (Views: 0.4ms | ActiveRecord: 9.7ms | Allocations: 8217)
+
+
+  [1m[36mLink Load (0.4ms)[0m  [1m[34mSELECT "links".* FROM "links"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLink Destroy (0.4ms)[0m  [1m[31mDELETE FROM "links" WHERE "links"."id" = $1[0m  [["id", 3]]
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/api/v1/links/" for ::1 at 2022-01-31 23:47:55 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{"url"=>"https://www.google.com"}}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Create (0.7ms)[0m  [1m[32mINSERT INTO "links" ("url", "short_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.google.com"], ["short_url", "mptqbw"], ["created_at", "2022-02-01 07:47:55.509754"], ["updated_at", "2022-02-01 07:47:55.509754"]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  Rendered api/v1/links/_link.jbuilder (Duration: 0.3ms | Allocations: 74)
+Completed 200 OK in 9627ms (Views: 2.0ms | ActiveRecord: 7.9ms | Allocations: 140623)
+
+
+Started POST "/api/v1/links/" for ::1 at 2022-01-31 23:48:09 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{"url"=>"https://www.google.com"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Create (0.5ms)[0m  [1m[32mINSERT INTO "links" ("url", "short_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.google.com"], ["short_url", "xvjict"], ["created_at", "2022-02-01 07:48:09.969396"], ["updated_at", "2022-02-01 07:48:09.969396"]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  Rendered api/v1/links/_link.jbuilder (Duration: 0.2ms | Allocations: 73)
+Completed 200 OK in 3882ms (Views: 0.8ms | ActiveRecord: 3.7ms | Allocations: 9223)
+
+
+Started GET "/api/v1/links" for ::1 at 2022-01-31 23:48:17 -0800
+Processing by Api::V1::LinksController#index as JSON
+  Rendering api/v1/links/index.jbuilder
+  [1m[36mLink Load (0.6ms)[0m  [1m[34mSELECT "links".* FROM "links" ORDER BY "links"."clicked" ASC LIMIT $1[0m  [["LIMIT", 100]]
+  ↳ app/views/api/v1/links/index.jbuilder:2
+  Rendered collection of api/v1/links/_link.jbuilder [2 times] (Duration: 0.2ms | Allocations: 54)
+  Rendered api/v1/links/index.jbuilder (Duration: 3.6ms | Allocations: 1054)
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.6ms | Allocations: 1324)
+
+
+Started GET "/api/v1/links" for ::1 at 2022-01-31 23:50:58 -0800
+Processing by Api::V1::LinksController#index as JSON
+  Rendering api/v1/links/index.jbuilder
+  [1m[36mLink Load (0.5ms)[0m  [1m[34mSELECT "links".* FROM "links" ORDER BY "links"."clicked" ASC LIMIT $1[0m  [["LIMIT", 100]]
+  ↳ app/views/api/v1/links/index.jbuilder:2
+  Rendered collection of api/v1/links/_link.jbuilder [2 times] (Duration: 0.2ms | Allocations: 57)
+  Rendered api/v1/links/index.jbuilder (Duration: 12.8ms | Allocations: 5270)
+Completed 200 OK in 25ms (Views: 8.9ms | ActiveRecord: 9.9ms | Allocations: 6836)
+
+
+Started POST "/api/v1/links/" for ::1 at 2022-01-31 23:51:00 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{"url"=>"https://www.google.com"}}
+  [1m[36mLink Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "cuwvui"], ["LIMIT", 1]]
+  ↳ app/models/link.rb:27:in `block in generate_short_url'
+  [1m[36mCACHE Link Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "cuwvui"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Create (0.5ms)[0m  [1m[32mINSERT INTO "links" ("url", "short_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.google.com"], ["short_url", "cuwvui"], ["created_at", "2022-02-01 07:51:00.607020"], ["updated_at", "2022-02-01 07:51:00.607020"]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  Rendered api/v1/links/_link.jbuilder (Duration: 0.2ms | Allocations: 73)
+Completed 200 OK in 32ms (Views: 1.0ms | ActiveRecord: 5.5ms | Allocations: 4370)
+
+
+Started POST "/api/v1/links/" for ::1 at 2022-01-31 23:51:01 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{"url"=>"https://www.google.com"}}
+  [1m[36mLink Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "jkhwpz"], ["LIMIT", 1]]
+  ↳ app/models/link.rb:27:in `block in generate_short_url'
+  [1m[36mCACHE Link Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "jkhwpz"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Create (0.4ms)[0m  [1m[32mINSERT INTO "links" ("url", "short_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.google.com"], ["short_url", "jkhwpz"], ["created_at", "2022-02-01 07:51:01.782391"], ["updated_at", "2022-02-01 07:51:01.782391"]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  Rendered api/v1/links/_link.jbuilder (Duration: 0.1ms | Allocations: 73)
+Completed 200 OK in 13ms (Views: 0.6ms | ActiveRecord: 7.1ms | Allocations: 4236)
+
+
+Started POST "/api/v1/links/" for ::1 at 2022-01-31 23:51:02 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{"url"=>"https://www.google.com"}}
+  [1m[36mLink Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "afjyew"], ["LIMIT", 1]]
+  ↳ app/models/link.rb:27:in `block in generate_short_url'
+  [1m[36mCACHE Link Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "afjyew"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Create (0.5ms)[0m  [1m[32mINSERT INTO "links" ("url", "short_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.google.com"], ["short_url", "afjyew"], ["created_at", "2022-02-01 07:51:02.620975"], ["updated_at", "2022-02-01 07:51:02.620975"]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  Rendered api/v1/links/_link.jbuilder (Duration: 0.2ms | Allocations: 73)
+Completed 200 OK in 17ms (Views: 1.3ms | ActiveRecord: 8.0ms | Allocations: 4236)
+
+
+Started GET "/api/v1/links/2" for ::1 at 2022-01-31 23:51:07 -0800
+Processing by Api::V1::LinksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mLink Load (0.3ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:13:in `show'
+Completed 404 Not Found in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 839)
+
+
+Started GET "/api/v1/links" for ::1 at 2022-01-31 23:51:09 -0800
+Processing by Api::V1::LinksController#index as JSON
+  Rendering api/v1/links/index.jbuilder
+  [1m[36mLink Load (0.6ms)[0m  [1m[34mSELECT "links".* FROM "links" ORDER BY "links"."clicked" ASC LIMIT $1[0m  [["LIMIT", 100]]
+  ↳ app/views/api/v1/links/index.jbuilder:2
+  Rendered collection of api/v1/links/_link.jbuilder [5 times] (Duration: 0.2ms | Allocations: 117)
+  Rendered api/v1/links/index.jbuilder (Duration: 2.8ms | Allocations: 1318)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.6ms | Allocations: 1582)
+
+
+Started GET "/api/v1/links/4" for ::1 at 2022-01-31 23:51:19 -0800
+Processing by Api::V1::LinksController#show as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mLink Load (0.4ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:13:in `show'
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:15:in `show'
+  [1m[36mLink Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 AND "links"."id" != $2 LIMIT $3[0m  [["short_url", "mptqbw"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:15:in `show'
+  [1m[36mLink Update (1.6ms)[0m  [1m[33mUPDATE "links" SET "clicked" = $1, "updated_at" = $2 WHERE "links"."id" = $3[0m  [["clicked", 1], ["updated_at", "2022-02-01 07:51:19.022291"], ["id", 4]]
+  ↳ app/controllers/api/v1/links_controller.rb:15:in `show'
+  [1m[35m (6.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/links_controller.rb:15:in `show'
+  Rendering api/v1/links/show.jbuilder
+  Rendered api/v1/links/_link.jbuilder (Duration: 0.1ms | Allocations: 16)
+  Rendered api/v1/links/show.jbuilder (Duration: 1.0ms | Allocations: 187)
+Completed 200 OK in 25ms (Views: 2.2ms | ActiveRecord: 11.1ms | Allocations: 4419)
+
+
+Started GET "/api/v1/links" for ::1 at 2022-01-31 23:51:21 -0800
+Processing by Api::V1::LinksController#index as JSON
+  Rendering api/v1/links/index.jbuilder
+  [1m[36mLink Load (0.4ms)[0m  [1m[34mSELECT "links".* FROM "links" ORDER BY "links"."clicked" ASC LIMIT $1[0m  [["LIMIT", 100]]
+  ↳ app/views/api/v1/links/index.jbuilder:2
+  Rendered collection of api/v1/links/_link.jbuilder [5 times] (Duration: 0.2ms | Allocations: 117)
+  Rendered api/v1/links/index.jbuilder (Duration: 2.3ms | Allocations: 1318)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.4ms | Allocations: 1582)
+
+
+Started GET "/api/v1/links" for ::1 at 2022-01-31 23:51:40 -0800
+Processing by Api::V1::LinksController#index as JSON
+  Rendering api/v1/links/index.jbuilder
+  [1m[36mLink Load (0.5ms)[0m  [1m[34mSELECT "links".* FROM "links" ORDER BY clicked DESC LIMIT $1[0m  [["LIMIT", 100]]
+  ↳ app/views/api/v1/links/index.jbuilder:2
+  Rendered collection of api/v1/links/_link.jbuilder [5 times] (Duration: 0.3ms | Allocations: 120)
+  Rendered api/v1/links/index.jbuilder (Duration: 20.3ms | Allocations: 5977)
+Completed 200 OK in 32ms (Views: 13.2ms | ActiveRecord: 8.7ms | Allocations: 7097)
+
+
+Started POST "/api/v1/links/" for ::1 at 2022-01-31 23:57:07 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{"url"=>"https://www.google.com"}}
+  [1m[36mLink Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "yfqbcq7e"], ["LIMIT", 1]]
+  ↳ app/models/link.rb:27:in `block in generate_short_url'
+Completed 500 Internal Server Error in 22ms (Views: 0.2ms | ActiveRecord: 7.1ms | Allocations: 7173)
+
+
+Started POST "/api/v1/links/" for ::1 at 2022-01-31 23:57:18 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{"url"=>"https://www.google.com"}}
+  [1m[36mLink Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "xl81za6x"], ["LIMIT", 1]]
+  ↳ app/models/link.rb:32:in `block in generate_short_url'
+  [1m[36mCACHE Link Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "xl81za6x"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:10:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:10:in `create'
+  [1m[36mLink Create (1.1ms)[0m  [1m[32mINSERT INTO "links" ("url", "short_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://google.com"], ["short_url", "xl81za6x"], ["created_at", "2022-02-01 07:57:18.793014"], ["updated_at", "2022-02-01 07:57:18.793014"]]
+  ↳ app/controllers/api/v1/links_controller.rb:10:in `create'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/links_controller.rb:10:in `create'
+  Rendered api/v1/links/_link.jbuilder (Duration: 0.3ms | Allocations: 74)
+Completed 200 OK in 42ms (Views: 1.6ms | ActiveRecord: 11.5ms | Allocations: 9204)
+
+
+Started POST "/api/v1/links/" for ::1 at 2022-01-31 23:57:23 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{"url"=>"https://www.google.com"}}
+  [1m[36mLink Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "ap729amc"], ["LIMIT", 1]]
+  ↳ app/models/link.rb:32:in `block in generate_short_url'
+  [1m[36mCACHE Link Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "ap729amc"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:10:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:10:in `create'
+  [1m[36mLink Create (0.4ms)[0m  [1m[32mINSERT INTO "links" ("url", "short_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://google.com"], ["short_url", "ap729amc"], ["created_at", "2022-02-01 07:57:23.198746"], ["updated_at", "2022-02-01 07:57:23.198746"]]
+  ↳ app/controllers/api/v1/links_controller.rb:10:in `create'
+  [1m[35m (40.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/links_controller.rb:10:in `create'
+  Rendered api/v1/links/_link.jbuilder (Duration: 0.3ms | Allocations: 73)
+Completed 200 OK in 52ms (Views: 1.2ms | ActiveRecord: 42.1ms | Allocations: 4234)
+
+
+Started POST "/api/v1/links/" for ::1 at 2022-01-31 23:57:45 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{"url"=>"https://medium.com/@sparkboldstudio/building-a-url-shortener-rails-app-96db60d3bf9d"}}
+  [1m[36mLink Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "7zjizbju"], ["LIMIT", 1]]
+  ↳ app/models/link.rb:32:in `block in generate_short_url'
+  [1m[36mCACHE Link Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "7zjizbju"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:10:in `create'
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:10:in `create'
+  [1m[36mLink Create (0.5ms)[0m  [1m[32mINSERT INTO "links" ("url", "short_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://medium.com/@sparkboldstudio/building-a-url-shortener-rails-app-96db60d3bf9d"], ["short_url", "7zjizbju"], ["created_at", "2022-02-01 07:57:45.507299"], ["updated_at", "2022-02-01 07:57:45.507299"]]
+  ↳ app/controllers/api/v1/links_controller.rb:10:in `create'
+  [1m[35m (40.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/links_controller.rb:10:in `create'
+  Rendered api/v1/links/_link.jbuilder (Duration: 0.3ms | Allocations: 73)
+Completed 200 OK in 52ms (Views: 1.0ms | ActiveRecord: 42.2ms | Allocations: 4235)
+
+
+Started POST "/api/v1/links/" for ::1 at 2022-01-31 23:58:15 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{"url"=>"https://medium.com/@sparkboldstudio/building-a-url-shortener-rails-app-96db60d3bf9d"}}
+  [1m[36mLink Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "6kiwr1dg"], ["LIMIT", 1]]
+  ↳ app/models/link.rb:33:in `block in generate_short_url'
+  [1m[36mCACHE Link Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "6kiwr1dg"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:10:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:10:in `create'
+  [1m[36mLink Create (0.7ms)[0m  [1m[32mINSERT INTO "links" ("url", "short_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://medium.com/@sparkboldstudio/building-a-url-shortener-rails-app-96db60d3bf9d"], ["short_url", "6kiwr1dg"], ["created_at", "2022-02-01 07:58:42.702349"], ["updated_at", "2022-02-01 07:58:42.702349"]]
+  ↳ app/controllers/api/v1/links_controller.rb:10:in `create'
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/links_controller.rb:10:in `create'
+  Rendered api/v1/links/_link.jbuilder (Duration: 0.2ms | Allocations: 74)
+Completed 200 OK in 29284ms (Views: 1.1ms | ActiveRecord: 16.9ms | Allocations: 22534)
+
+
+Started POST "/api/v1/links/" for ::1 at 2022-01-31 23:59:02 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{"url"=>"https://medium.com/@sparkboldstudio/building-a-url-shortener-rails-app-96db60d3bf9d"}}
+  [1m[36mLink Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "953drocm"], ["LIMIT", 1]]
+  ↳ app/models/link.rb:27:in `block in generate_short_url'
+  [1m[36mCACHE Link Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "953drocm"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+Completed 500 Internal Server Error in 34ms (Views: 0.2ms | ActiveRecord: 9.6ms | Allocations: 9075)
+
+
+Started POST "/api/v1/links/" for ::1 at 2022-01-31 23:59:12 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{"url"=>"https://medium.com/@sparkboldstudio/building-a-url-shortener-rails-app-96db60d3bf9d"}}
+  [1m[36mLink Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "nn6tvf5q"], ["LIMIT", 1]]
+  ↳ app/models/link.rb:27:in `block in generate_short_url'
+  [1m[36mCACHE Link Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "nn6tvf5q"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+Completed 500 Internal Server Error in 24ms (Views: 0.2ms | ActiveRecord: 6.8ms | Allocations: 9040)
+
+
+Started POST "/api/v1/links/" for ::1 at 2022-01-31 23:59:18 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{"url"=>"https://medium.com/@sparkboldstudio/building-a-url-shortener-rails-app-96db60d3bf9d"}}
+  [1m[36mLink Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "tqhmbnl7"], ["LIMIT", 1]]
+  ↳ app/models/link.rb:26:in `block in generate_short_url'
+  [1m[36mCACHE Link Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "tqhmbnl7"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Create (0.8ms)[0m  [1m[32mINSERT INTO "links" ("url", "short_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://medium.com/@sparkboldstudio/building-a-url-shortener-rails-app-96db60d3bf9d"], ["short_url", "tqhmbnl7"], ["created_at", "2022-02-01 07:59:18.915870"], ["updated_at", "2022-02-01 07:59:18.915870"]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[35m (40.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  Rendered api/v1/links/_link.jbuilder (Duration: 0.2ms | Allocations: 74)
+Completed 200 OK in 88ms (Views: 1.1ms | ActiveRecord: 55.6ms | Allocations: 9230)
+
+
+Started POST "/api/v1/links/" for ::1 at 2022-02-01 00:01:29 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{"url"=>"https://medium.com/@sparkboldstudio/building-a-url-shortener-rails-app-96db60d3bf9d"}}
+  [1m[36mLink Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "43i8zzen"], ["LIMIT", 1]]
+  ↳ app/models/link.rb:26:in `block in generate_short_url'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "medium.com/43i8zzen"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Create (0.9ms)[0m  [1m[32mINSERT INTO "links" ("url", "short_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://medium.com/@sparkboldstudio/building-a-url-shortener-rails-app-96db60d3bf9d"], ["short_url", "medium.com/43i8zzen"], ["created_at", "2022-02-01 08:01:29.821079"], ["updated_at", "2022-02-01 08:01:29.821079"]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  Rendered api/v1/links/_link.jbuilder (Duration: 0.3ms | Allocations: 74)
+Completed 200 OK in 44ms (Views: 1.7ms | ActiveRecord: 11.7ms | Allocations: 9475)
+
+
+Started POST "/api/v1/links/" for ::1 at 2022-02-01 00:03:24 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{"url"=>"https://medium.com/@sparkboldstudio/building-a-url-shortener-rails-app-96db60d3bf9d"}}
+  [1m[36mLink Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "mudg8pml"], ["LIMIT", 1]]
+  ↳ app/models/link.rb:26:in `block in generate_short_url'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "[]/mudg8pml"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Create (2.9ms)[0m  [1m[32mINSERT INTO "links" ("url", "short_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://medium.com/@sparkboldstudio/building-a-url-shortener-rails-app-96db60d3bf9d"], ["short_url", "[]/mudg8pml"], ["created_at", "2022-02-01 08:03:24.791622"], ["updated_at", "2022-02-01 08:03:24.791622"]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[35m (10.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  Rendered api/v1/links/_link.jbuilder (Duration: 0.3ms | Allocations: 74)
+Completed 200 OK in 53ms (Views: 1.8ms | ActiveRecord: 29.2ms | Allocations: 9422)
+
+
+Started POST "/api/v1/links/" for ::1 at 2022-02-01 00:04:06 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{"url"=>"https://medium.com/@sparkboldstudio/building-a-url-shortener-rails-app-96db60d3bf9d"}}
+  [1m[36mLink Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "c5ub8at8"], ["LIMIT", 1]]
+  ↳ app/models/link.rb:26:in `block in generate_short_url'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "medium.com/c5ub8at8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Create (0.5ms)[0m  [1m[32mINSERT INTO "links" ("url", "short_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://medium.com/@sparkboldstudio/building-a-url-shortener-rails-app-96db60d3bf9d"], ["short_url", "medium.com/c5ub8at8"], ["created_at", "2022-02-01 08:04:07.083068"], ["updated_at", "2022-02-01 08:04:07.083068"]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  Rendered api/v1/links/_link.jbuilder (Duration: 0.2ms | Allocations: 74)
+Completed 200 OK in 31ms (Views: 0.9ms | ActiveRecord: 10.4ms | Allocations: 9471)
+
+
+Started POST "/api/v1/links/" for ::1 at 2022-02-01 00:04:20 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{"url"=>"https://medium.com/@sparkboldstudio/building-a-url-shortener-rails-app-96db60d3bf9d"}}
+  [1m[36mLink Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "dassovnn"], ["LIMIT", 1]]
+  ↳ app/models/link.rb:26:in `block in generate_short_url'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "medium.com/dassovnn"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Create (0.8ms)[0m  [1m[32mINSERT INTO "links" ("url", "short_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://medium.com/@sparkboldstudio/building-a-url-shortener-rails-app-96db60d3bf9d"], ["short_url", "medium.com/dassovnn"], ["created_at", "2022-02-01 08:04:20.386078"], ["updated_at", "2022-02-01 08:04:20.386078"]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  Rendered api/v1/links/_link.jbuilder (Duration: 0.2ms | Allocations: 74)
+Completed 200 OK in 31ms (Views: 1.3ms | ActiveRecord: 9.6ms | Allocations: 9433)
+
+
+Started POST "/api/v1/links/" for ::1 at 2022-02-01 00:04:22 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{"url"=>"https://medium.com/@sparkboldstudio/building-a-url-shortener-rails-app-96db60d3bf9d"}}
+  [1m[36mLink Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "u387n4gk"], ["LIMIT", 1]]
+  ↳ app/models/link.rb:26:in `block in generate_short_url'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "medium.com/u387n4gk"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Create (0.7ms)[0m  [1m[32mINSERT INTO "links" ("url", "short_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://medium.com/@sparkboldstudio/building-a-url-shortener-rails-app-96db60d3bf9d"], ["short_url", "medium.com/u387n4gk"], ["created_at", "2022-02-01 08:04:22.247919"], ["updated_at", "2022-02-01 08:04:22.247919"]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  Rendered api/v1/links/_link.jbuilder (Duration: 0.1ms | Allocations: 73)
+Completed 200 OK in 16ms (Views: 0.5ms | ActiveRecord: 7.7ms | Allocations: 4483)
+
+
+Started POST "/api/v1/links/" for ::1 at 2022-02-01 00:12:36 -0800
+  [1m[35m (18.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{"url"=>"https://medium.com/@sparkboldstudio/building-a-url-shortener-rails-app-96db60d3bf9d"}}
+  [1m[36mLink Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "78g2y0qv"], ["LIMIT", 1]]
+  ↳ app/models/link.rb:25:in `block in generate_short_url'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "medium.com/78g2y0qv"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Create (41.6ms)[0m  [1m[32mINSERT INTO "links" ("url", "short_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://medium.com/@sparkboldstudio/building-a-url-shortener-rails-app-96db60d3bf9d"], ["short_url", "medium.com/78g2y0qv"], ["created_at", "2022-02-01 08:12:36.258460"], ["updated_at", "2022-02-01 08:12:36.258460"]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+[ActiveJob] [UpdateTitleJob] [1408c0e3-505b-4b2c-9819-6cd24ebfdf46] Performing UpdateTitleJob (Job ID: 1408c0e3-505b-4b2c-9819-6cd24ebfdf46) from Resque(default) enqueued at  with arguments: 19
+[ActiveJob] [UpdateTitleJob] [1408c0e3-505b-4b2c-9819-6cd24ebfdf46]   [1m[36mLink Load (0.4ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+[ActiveJob] [UpdateTitleJob] [1408c0e3-505b-4b2c-9819-6cd24ebfdf46]   ↳ app/jobs/update_title_job.rb:6:in `perform'
+[ActiveJob] [UpdateTitleJob] [1408c0e3-505b-4b2c-9819-6cd24ebfdf46]   [1m[36mLink Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 AND "links"."id" != $2 LIMIT $3[0m  [["short_url", "medium.com/78g2y0qv"], ["id", 19], ["LIMIT", 1]]
+[ActiveJob] [UpdateTitleJob] [1408c0e3-505b-4b2c-9819-6cd24ebfdf46]   ↳ app/jobs/update_title_job.rb:10:in `perform'
+[ActiveJob] [UpdateTitleJob] [1408c0e3-505b-4b2c-9819-6cd24ebfdf46]   [1m[36mLink Update (0.7ms)[0m  [1m[33mUPDATE "links" SET "title" = $1, "updated_at" = $2 WHERE "links"."id" = $3[0m  [["title", "Building a URL Shortener Rails App | by Trung Hoang | Medium"], ["updated_at", "2022-02-01 08:12:38.790299"], ["id", 19]]
+[ActiveJob] [UpdateTitleJob] [1408c0e3-505b-4b2c-9819-6cd24ebfdf46]   ↳ app/jobs/update_title_job.rb:10:in `perform'
+[ActiveJob] [UpdateTitleJob] [1408c0e3-505b-4b2c-9819-6cd24ebfdf46] Performed UpdateTitleJob (Job ID: 1408c0e3-505b-4b2c-9819-6cd24ebfdf46) from Resque(default) in 2429.27ms
+  [1m[35m (40.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  Rendered api/v1/links/_link.jbuilder (Duration: 2.8ms | Allocations: 258)
+Completed 200 OK in 2621ms (Views: 12.3ms | ActiveRecord: 97.1ms | Allocations: 37155)
+
+
+Started POST "/api/v1/links/" for ::1 at 2022-02-01 00:13:00 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{"url"=>"https://medium.com/@sparkboldstudio/building-a-url-shortener-rails-app-96db60d3bf9d"}}
+  [1m[36mLink Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "x4v0gjht"], ["LIMIT", 1]]
+  ↳ app/models/link.rb:25:in `block in generate_short_url'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "medium.com/x4v0gjht"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Create (0.6ms)[0m  [1m[32mINSERT INTO "links" ("url", "short_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://medium.com/@sparkboldstudio/building-a-url-shortener-rails-app-96db60d3bf9d"], ["short_url", "medium.com/x4v0gjht"], ["created_at", "2022-02-01 08:13:00.407836"], ["updated_at", "2022-02-01 08:13:00.407836"]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+[ActiveJob] Enqueued UpdateTitleJob (Job ID: 35ba1d43-ee5d-461f-91f5-32b4a56e8a48) to Resque(default) with arguments: 20
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+Completed 500 Internal Server Error in 46ms (Views: 0.7ms | ActiveRecord: 10.1ms | Allocations: 10553)
+
+
+Started POST "/api/v1/links/" for ::1 at 2022-02-01 00:13:05 -0800
+Processing by Api::V1::LinksController#create as JSON
+  Parameters: {"link"=>{"url"=>"https://medium.com/@sparkboldstudio/building-a-url-shortener-rails-app-96db60d3bf9d"}}
+  [1m[36mLink Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "1nruomxg"], ["LIMIT", 1]]
+  ↳ app/models/link.rb:25:in `block in generate_short_url'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "links" WHERE "links"."short_url" = $1 LIMIT $2[0m  [["short_url", "medium.com/1nruomxg"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  [1m[36mLink Create (0.6ms)[0m  [1m[32mINSERT INTO "links" ("url", "short_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://medium.com/@sparkboldstudio/building-a-url-shortener-rails-app-96db60d3bf9d"], ["short_url", "medium.com/1nruomxg"], ["created_at", "2022-02-01 08:13:05.358711"], ["updated_at", "2022-02-01 08:13:05.358711"]]
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+[ActiveJob] Enqueued UpdateTitleJob (Job ID: 24dca830-d3ff-46b5-aed0-ea62b23a0838) to Resque(default) with arguments: 21
+  [1m[35m (40.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/links_controller.rb:8:in `create'
+  Rendered api/v1/links/_link.jbuilder (Duration: 0.3ms | Allocations: 75)
+Completed 200 OK in 68ms (Views: 3.8ms | ActiveRecord: 41.9ms | Allocations: 5126)
+
+
+Started GET "/api/v1/links" for ::1 at 2022-02-01 00:13:22 -0800
+Processing by Api::V1::LinksController#index as JSON
+  Rendering api/v1/links/index.jbuilder
+  [1m[36mLink Load (0.8ms)[0m  [1m[34mSELECT "links".* FROM "links" ORDER BY clicked DESC LIMIT $1[0m  [["LIMIT", 100]]
+  ↳ app/views/api/v1/links/index.jbuilder:2
+  Rendered collection of api/v1/links/_link.jbuilder [17 times] (Duration: 1.9ms | Allocations: 499)
+  Rendered api/v1/links/index.jbuilder (Duration: 11.4ms | Allocations: 2876)
+Completed 200 OK in 30ms (Views: 27.8ms | ActiveRecord: 0.8ms | Allocations: 5095)
+
+
+Started GET "/" for ::1 at 2022-02-01 00:14:13 -0800
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/dev/.rvm/gems/ruby-2.6.6/gems/railties-6.0.4.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/dev/.rvm/gems/ruby-2.6.6/gems/railties-6.0.4.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 14.4ms | Allocations: 200)
+Completed 200 OK in 21ms (Views: 15.5ms | ActiveRecord: 0.0ms | Allocations: 1239)
+
+
+Started GET "/favicon.ico" for ::1 at 2022-02-01 00:14:13 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4.4) lib/action_dispatch/middleware/host_authorization.rb:103:in `call'
+railties (6.0.4.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.10) lib/puma/configuration.rb:228:in `call'
+puma (4.3.10) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.10) lib/puma/server.rb:472:in `process_client'
+puma (4.3.10) lib/puma/server.rb:328:in `block in run'
+puma (4.3.10) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/admin/jobs" for ::1 at 2022-02-01 00:14:19 -0800
+Started GET "/admin/jobs/overview" for ::1 at 2022-02-01 00:14:19 -0800
+Started GET "/admin/jobs/__sinatra__/500.png" for ::1 at 2022-02-01 00:14:20 -0800
+Started GET "/admin/jobs/overview" for ::1 at 2022-02-01 00:14:27 -0800
+Started GET "/admin/jobs/reset.css" for ::1 at 2022-02-01 00:14:27 -0800
+Started GET "/admin/jobs/style.css" for ::1 at 2022-02-01 00:14:27 -0800
+Started GET "/admin/jobs/jquery.relatize_date.js" for ::1 at 2022-02-01 00:14:27 -0800
+Started GET "/admin/jobs/jquery-3.6.0.min.js" for ::1 at 2022-02-01 00:14:27 -0800
+Started GET "/admin/jobs/ranger.js" for ::1 at 2022-02-01 00:14:27 -0800
+Started GET "/admin/jobs/main.js" for ::1 at 2022-02-01 00:14:27 -0800
+Started GET "/admin/jobs/poll.png" for ::1 at 2022-02-01 00:14:27 -0800
+Started GET "/admin/jobs/queues/default" for ::1 at 2022-02-01 00:14:29 -0800
+Started GET "/admin/jobs/reset.css" for ::1 at 2022-02-01 00:14:29 -0800
+Started GET "/admin/jobs/style.css" for ::1 at 2022-02-01 00:14:29 -0800
+Started GET "/admin/jobs/jquery-3.6.0.min.js" for ::1 at 2022-02-01 00:14:29 -0800
+Started GET "/admin/jobs/jquery.relatize_date.js" for ::1 at 2022-02-01 00:14:29 -0800
+Started GET "/admin/jobs/main.js" for ::1 at 2022-02-01 00:14:29 -0800
+Started GET "/admin/jobs/ranger.js" for ::1 at 2022-02-01 00:14:29 -0800
