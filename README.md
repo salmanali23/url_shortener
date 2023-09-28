@@ -28,9 +28,9 @@ The URL Shortener App is a Ruby on Rails application that allows users to shorte
 
 Before you begin, ensure you have met the following requirements:
 
-- Ruby (version X.X.X)
-- Ruby on Rails (version X.X.X)
-- PostgreSQL (version X.X.X)
+- Ruby (version 2.6.6)
+- Ruby on Rails
+- PostgreSQL
 
 ### Installation
 
